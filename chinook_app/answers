@@ -1,0 +1,35 @@
+
+1) Album.where(artist_id: Artist.where(name: 'Queen'))
+
+2) MediaType.where name:"Protected MPEG-4 video file"
+   Track.where media_type_id:3.count
+
+3) Genre.where name: 'Hip Hop/Rap'
+
+4) Genre.where name: "Hip Hop/Rap"
+   Track.where(genre_id:17).count
+
+5) Track.sum('milliseconds')
+
+6)MediaType.where name: 'MPEG audio file'
+  Track.where(media_type_id: 1).maximum('unit_price')
+
+7) MediaType.where(name: 'MPEG audio file')
+   Track.where(media_type_id: 1).where(unit_price:0.99e0).pluck(:name)
+
+8) Artist.order(created_at: :desc).limit(2)
+
+9) Genre.where(name: "Electronica/Dance")
+    Track.where(genre_id: 15).order(unit_price: :asc).limit(1)
+
+10) Genre.where(name: "Electronica/Dance") = 15
+    MediaType.where(name: 'MPEG autio file')
+    Track.where(genre_id: 15).where(media_type_id: 1).pluck(:name)
+
+
+
+
+
+
+
+Find all "MPEG autio file" tracks in the genre "Electronica/Dance".
